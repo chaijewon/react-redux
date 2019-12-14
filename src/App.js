@@ -1,25 +1,34 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Menu from "./components/Menu";
+import BoxOffice from "./components/BoxOffice";
+/*
+     Redux
+     ======
+       1) View(React화면) => action 발생 (이벤트 발생)
+       2) 이벤트의 종류 => dispatch(이벤트 종류)
+                          dispatch({type:'INCRENENT'}
+       3) reducer => (cState,action)
+             action => 처리 ==> cState<=nState
+       4) 저장 ==> store
+       5) 필요한 컴포넌트에서 ==> store에 데이터 출력
 
-function App() {
+     Redux를 사용
+     ============
+     1. store 생성
+     2. action 등록
+     3. reducer에서 처리
+     4. react에서 state를 가지고 오는 방법
+
+
+ */
+function App(store) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Menu store={store}/>
+      <BoxOffice store={store}/>
+    </React.Fragment>
   );
 }
 
